@@ -4,29 +4,30 @@ import axios from 'axios';
 export const NewsContext = createContext();
 
 export const NewsContextProvider = (props) => {
-  const [data, setData] = useState('');
+  const [data, setData] = useState('')
+  const [searchTerm, setSearchTerm] = useState([])
   const apiKey = "109e051f09d14e1a8d54c3db2ec827d2";
   const handleSubmit = (e) => {
     e.preventDefault()
   }
+
   useEffect(() => {
   	axios
   	  .get(
   	    `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${apiKey}`
   	  )
-  	  .then((response) => setData(response.data))
-  	  .catch((error) => console.log(error));
-  },[]);
+  	  .then((response) => setSearchTerm(response.data))
+  	  .catch((error) => console.log(error))
+  },[])
 
   return (
-
   	<NewsContext.Provider value={{ data }}><br />
       <div>
         <form onSubmit={handleSubmit}>
           <input 
             type="text" 
             placeholder="Search..."
-            onChange={(e) => setData(e.target.value)}
+            onChange={(e) => NewsContextProvider(e.target.value)}
           /> 
           <button type="submit">Enter</button>
         </form>
