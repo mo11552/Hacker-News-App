@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 import { NewsContext } from '../NewsContext';
 import NewsArticle from "./NewsArticle";
+import SearchTerms from "./SearchTerms"
 
 function News(props) {
-  const { data } = useContext(NewsContext);
+  const { data, term } = useContext(NewsContext);
 
   return (  
     <div>
