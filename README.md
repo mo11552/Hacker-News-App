@@ -6,7 +6,7 @@ React Project of a HackerNews.com clone using the News API and Redux.
 
 ## Technologies Used
 
-React, React Redux, Axios, Javascript and CSS
+React, React Redux, Axios and Javascript 
 
 ### `Quick Start`
 Download Repository
